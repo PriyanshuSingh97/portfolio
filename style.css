@@ -579,7 +579,7 @@ body.dark-mode .form-group input, body.dark-mode .form-group textarea {
     color: var(--dark);
     border: 2px solid var(--primary);
     border-radius: 12px;
-    padding: 2rem 2.5rem;
+    padding: 1.2rem 2.5rem;
     font-weight: 600;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     z-index: 2000;
@@ -604,16 +604,6 @@ body.dark-mode #thank-you-popup {
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, -50%) scale(1.02);
-}
-
-/* Add a success icon */
-#thank-you-popup::before {
-    content: "✓";
-    display: block;
-    font-size: 3rem;
-    color: var(--primary);
-    margin-bottom: 1rem;
-    font-weight: bold;
 }
 
 /* Popup text styling */
