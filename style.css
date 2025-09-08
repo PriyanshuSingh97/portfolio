@@ -29,7 +29,7 @@ body.dark-mode {
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 70px; /* Offset for fixed navbar */
+    scroll-padding-top: 70px;
 }
 
 body {
@@ -270,6 +270,14 @@ body.dark-mode .hamburger {
 .btn-small {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
+}
+
+.resume-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start; /* Align left */
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
 }
 
 /* SECTIONS */
@@ -567,24 +575,63 @@ body.dark-mode .form-group input, body.dark-mode .form-group textarea {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-    border-radius: 8px;
-    padding: 1rem 2rem;
-    font-weight: bold;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    background-color: var(--light-alt);
+    color: var(--dark);
+    border: 2px solid var(--primary);
+    border-radius: 12px;
+    padding: 2rem 2.5rem;
+    font-weight: 600;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     z-index: 2000;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
     max-width: 90%;
+    min-width: 300px;
     text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+/* Dark mode popup styles */
+body.dark-mode #thank-you-popup {
+    background-color: var(--dark-alt);
+    color: var(--light);
+    border-color: var(--primary);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 #thank-you-popup.show {
     opacity: 1;
     visibility: visible;
+    transform: translate(-50%, -50%) scale(1.02);
+}
+
+/* Add a success icon */
+#thank-you-popup::before {
+    content: "✓";
+    display: block;
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+/* Popup text styling */
+#thank-you-popup p {
+    font-size: 1.1rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Add a subtle animation pulse effect */
+@keyframes successPulse {
+    0% { transform: translate(-50%, -50%) scale(1.02); }
+    50% { transform: translate(-50%, -50%) scale(1.05); }
+    100% { transform: translate(-50%, -50%) scale(1.02); }
+}
+
+#thank-you-popup.show {
+    animation: successPulse 0.6s ease-in-out;
 }
 
 /* FOOTER */
@@ -661,7 +708,7 @@ footer {
         background-color: var(--light);
         box-shadow: var(--shadow);
         padding: 1rem 0;
-        transition: top 0.3s ease; /* Animate the top property */
+        transition: top 0.3s ease;
         z-index: 999;
     }
 
@@ -728,4 +775,3 @@ footer {
         grid-template-columns: 1fr;
     }
 }
-
